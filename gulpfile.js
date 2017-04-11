@@ -1,4 +1,5 @@
 var gulp = require('gulp');
+var jade = require( 'gulp-jade' );
 var gutil = require('gulp-util');
 var bower = require('bower');
 var concat = require('gulp-concat');
@@ -8,10 +9,18 @@ var rename = require('gulp-rename');
 var sh = require('shelljs');
 
 var paths = {
+  jade: ['./jade/**/*.jade'],
   sass: ['./scss/**/*.scss']
 };
 
-gulp.task('default', ['sass']);
+gulp.task('serve:before', ['sass', 'watch', 'jade']);
+
+gulp.task( 'jade', function (done) {
+  gulp.src(paths.jade)
+    .pipe(jade())
+    .pipe( gulp.dest('./www/') )
+    .on('end', done);
+} );
 
 gulp.task('sass', function(done) {
   gulp.src('./scss/ionic.app.scss')
@@ -28,6 +37,7 @@ gulp.task('sass', function(done) {
 
 gulp.task('watch', ['sass'], function() {
   gulp.watch(paths.sass, ['sass']);
+  gulp.watch(paths.jade, ['jade']);
 });
 
 gulp.task('install', ['git-check'], function() {
