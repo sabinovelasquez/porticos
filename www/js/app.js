@@ -2,10 +2,9 @@ var porticos = angular.module('starter', ['ionic', 'ngCordova'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
-    $rootScope.options = {
-      correctOrientation: false,
-      cameraDirection : 1 // 0 means BACK, 1 means FRONT
-   };  
+    if(window.StatusBar) {
+      StatusBar.styleDefault();
+    }
   });
 })
 
