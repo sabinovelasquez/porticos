@@ -24,21 +24,15 @@ var porticos = angular.module('starter', ['ionic', 'ngCordova'])
 })
 
 porticos.controller("scanBarCtrl", function($scope, $cordovaBarcodeScanner) {
-    $scope.scanBarcode = function() {
-        $cordovaBarcodeScanner.scan().then(function(imageData) {
-            alert(imageData.text);
-            console.log("Barcode Format -> " + imageData.format);
-            console.log("Cancelled -> " + imageData.cancelled);
-        }, function(error) {
-            console.log("An error happened -> " + error);
-        },
-        {
-            preferFrontCamera : false,
-            showFlipCameraButton : true,
-            showTorchButton : true,
-            torchOn: true,
-            prompt : "Place a barcode inside the scan area",
-            orientation : "portrait"
-        });
-    };
+  $scope.scanBarcode = function() {
+    $cordovaBarcodeScanner.scan(function (result) {
+        alert(result.text);
+      },
+      function (error) {
+        alert("Scanning failed: " + error);
+      },
+      {
+        preferFrontCamera: false
+      });
+  };
 });

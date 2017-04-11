@@ -17,7 +17,7 @@ $ ionic platform add ios
 # install node modules:
 $ npm install
 # add cordova plugin:
-$ cordova plugin add https://github.com/wildabeast/BarcodeScanner.git
+$ cordova plugin add phonegap-plugin-barcodescanner --variable CAMERA_USAGE_DESCRIPTION="Escáner de Pórticos"
 ```
 
 #### Run, build, emulate
