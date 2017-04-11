@@ -22,6 +22,6 @@ $ cordova plugin add phonegap-plugin-barcodescanner --variable CAMERA_USAGE_DESC
 
 #### Run, build, emulate
 
-Just run `$ ionic build android` or `$ ionic build ios`. change `run`to `build` to deploy to the device.
+Just run `$ ionic build android` or `$ ionic build ios`. Change `build`to `run` to deploy to the device.
 
 [sabino.cl](http://www.sabino.cl)
