@@ -1,4 +1,11 @@
-var porticos = angular.module('starter', ['ionic', 'ngCordova'])
+'use strict';
+
+angular.module('Porticos', [
+  'ionic',
+  'ngCordova',
+  'Porticos.routes',
+  'Porticos.controllers'
+  ])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -6,19 +13,6 @@ var porticos = angular.module('starter', ['ionic', 'ngCordova'])
       StatusBar.styleDefault();
     }
   });
-})
-
-porticos.controller('scanBarCtrl', function($scope, $cordovaBarcodeScanner) {
-  $scope.scanBarcode = function() {
-    $cordovaBarcodeScanner.scan(
-      {
-        preferFrontCamera : true,
-        orientation : 'portrait'
-      }).then(function (result) {
-        alert(result.text);
-      },
-      function (error) {
-        alert('Scanning failed: ' + error);
-      });
-  };
 });
+
+angular.module('Porticos.controllers', []);
