@@ -9814,3 +9814,16 @@ a.button {
   opacity: 0;
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
+
+@font-face {
+  font-family: 'MontserratBlack';
+  src: url("../fonts/Montserrat/Montserrat-Black.ttf") format("truetype");
+  font-weight: 900; }
+
+body {
+  font-family: 'Montserrat', sans-serif; }
+
+.home .header {
+  height: 540px;
+  background-image: url("../img/headbg.png");
+  font-family: 'MontserratBlack'; }
